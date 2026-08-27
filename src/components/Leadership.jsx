@@ -66,7 +66,7 @@ const Leadership = () => {
                   src={leader.photo} 
                   alt={leader.nameEn} 
                   className="leader-photo logo-no-distortion"
-                  onError={(e) => { e.target.src = "/assets/dmk_logo.png"; }}
+                  onError={(e) => { e.target.src = `${import.meta.env.BASE_URL}assets/dmk_logo.png`; }}
                 />
               </div>
 

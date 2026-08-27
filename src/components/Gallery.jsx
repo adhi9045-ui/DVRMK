@@ -4,30 +4,32 @@ import { Maximize2, X, Image as ImageIcon } from 'lucide-react';
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
+  const logoSrc = `${import.meta.env.BASE_URL}assets/dmk_logo.png`;
+
   const images = [
     {
       id: 1,
       title: 'மாநில அளவிலான ஓட்டுநர் பேரணி',
       captionTa: 'சென்னை அண்ணா சாலையில் நடைபெற்ற மாபெரும் ஓட்டுநர் உரிமை பேரணி.',
-      src: `${import.meta.env.BASE_URL}assets/dmk_logo.png`
+      src: logoSrc
     },
     {
       id: 2,
       title: 'இலவச மருத்துவ முகாம்',
       captionTa: 'ஆட்டோ மற்றும் லாரி ஓட்டுநர்களுக்கான கண் பரிசோதனை முகாம்.',
-      src: `${import.meta.env.BASE_URL}assets/dmk_logo.png`
+      src: logoSrc
     },
     {
       id: 3,
       title: 'நிர்வாகிகள் கலந்தாய்வு கூட்டம்',
       captionTa: 'மதுரை கிளை வளர்ச்சி மற்றும் புதிய உறுப்பினர் சேர்க்கை ஆலோசனை.',
-      src: `${import.meta.env.BASE_URL}assets/dmk_logo.png`
+      src: logoSrc
     },
     {
       id: 4,
       title: 'ஓட்டுநர் குடும்பங்களுக்கு நிவாரணம்',
       captionTa: 'பணியின் போது உயிரிழந்த ஓட்டுநர் குடும்பத்திற்கு நிதி உதவி வழங்கல்.',
-      src: `${import.meta.env.BASE_URL}assets/dmk_logo.png`
+      src: logoSrc
     }
   ];
 
@@ -46,12 +48,12 @@ const Gallery = () => {
 
         <div className="gallery-grid">
           {images.map((img) => (
-            <div 
-              key={img.id} 
+            <div
+              key={img.id}
               className="gallery-item"
               onClick={() => setSelectedImage(img)}
             >
-              <div 
+              <div
                 style={{
                   width: '100%',
                   height: '100%',
@@ -61,9 +63,9 @@ const Gallery = () => {
                   justifyContent: 'center'
                 }}
               >
-                <img 
-                  src={img.src} 
-                  alt={img.title} 
+                <img
+                  src={img.src}
+                  alt={img.title}
                   className="gallery-img logo-no-distortion"
                   style={{ width: '120px', height: '120px' }}
                 />
@@ -82,15 +84,15 @@ const Gallery = () => {
 
       {/* Responsive Modal Lightbox */}
       {selectedImage && (
-        <div 
+        <div
           className="lightbox-backdrop"
           onClick={() => setSelectedImage(null)}
         >
-          <div 
+          <div
             className="lightbox-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <button 
+            <button
               className="lightbox-close-btn"
               onClick={() => setSelectedImage(null)}
               aria-label="Close image lightbox"
@@ -99,9 +101,9 @@ const Gallery = () => {
             </button>
 
             <div style={{ background: '#0F0909', padding: '2rem', borderRadius: '16px', border: '2px solid var(--gold-bright)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <img 
-                src={selectedImage.src} 
-                alt={selectedImage.title} 
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.title}
                 className="lightbox-img logo-no-distortion"
                 style={{ width: '260px', height: '260px' }}
               />
@@ -117,4 +119,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default Gallery

@@ -4,8 +4,8 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // Use relative base path for GitHub Pages compatibility across any repo or custom domain
-  base: './',
+  // Must match the GitHub Pages sub-path: https://adhi9045-ui.github.io/DVRMK/
+  base: '/DVRMK/',
   server: {
     port: 3000,
     host: true
