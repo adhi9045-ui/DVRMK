@@ -40,7 +40,7 @@ const Navbar = ({ onOpenJoinModal }) => {
   return (
     <>
       <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
-        <div className="container header-container">
+        <div className="header-container">
           {/* Logo & Brand Name */}
           <a href="#home" className="brand-logo-link" onClick={() => handleNavClick('home')}>
             <img 
@@ -70,24 +70,26 @@ const Navbar = ({ onOpenJoinModal }) => {
                 {item.labelTa}
               </a>
             ))}
-            
-            <button 
-              className="btn btn-gold btn-sm"
-              onClick={onOpenJoinModal}
-            >
-              <Sparkles size={16} />
-              <span className="tamil-text">இணையுங்கள்</span>
-            </button>
           </nav>
 
-          {/* Mobile Hamburger Button */}
-          <button 
-            className="hamburger-btn"
-            onClick={() => setIsDrawerOpen(true)}
-            aria-label="Open Navigation Menu"
-          >
-            <Menu size={26} />
-          </button>
+          {/* Header Action Group (Join Button & Mobile Menu Toggle) */}
+          <div className="header-actions">
+            <button 
+              className="btn btn-gold btn-sm header-join-btn"
+              onClick={onOpenJoinModal}
+            >
+              <Sparkles size={15} />
+              <span className="tamil-text">இணையுங்கள்</span>
+            </button>
+
+            <button 
+              className="hamburger-btn"
+              onClick={() => setIsDrawerOpen(true)}
+              aria-label="Open Navigation Menu"
+            >
+              <Menu size={24} />
+            </button>
+          </div>
         </div>
       </header>
 

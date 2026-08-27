@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - dmk
 
   # Allows manual workflow triggering from Actions tab
   workflow_dispatch:

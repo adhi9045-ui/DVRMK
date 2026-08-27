@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Sparkles, CheckCircle2, ShieldCheck, Printer, UserCheck, CreditCard } from 'lucide-react';
+import { X, Sparkles, CheckCircle2, ShieldCheck, Printer, UserCheck, Upload, Image as ImageIcon } from 'lucide-react';
 
 const JoinModal = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(1);
@@ -7,13 +7,22 @@ const JoinModal = ({ isOpen, onClose }) => {
     fullName: '',
     mobile: '',
     district: 'சென்னை',
-    vehicleType: 'ஆட்டோ ஓட்டுநர் (Auto)',
-    licenseNo: '',
-    experience: '5+ ஆண்டுகள்'
+    photoUrl: null
   });
   const [memberId, setMemberId] = useState('');
 
   if (!isOpen) return null;
+
+  const handlePhotoChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData((prev) => ({ ...prev, photoUrl: reader.result }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -22,10 +31,21 @@ const JoinModal = ({ isOpen, onClose }) => {
     setStep(2);
   };
 
+  const handleReset = () => {
+    setStep(1);
+    setFormData({
+      fullName: '',
+      mobile: '',
+      district: 'சென்னை',
+      photoUrl: null
+    });
+    onClose();
+  };
+
   return (
     <div 
       className="lightbox-backdrop"
-      onClick={onClose}
+      onClick={handleReset}
       style={{ zIndex: 2200 }}
     >
       <div 
@@ -34,7 +54,7 @@ const JoinModal = ({ isOpen, onClose }) => {
         style={{
           width: '100%',
           maxWidth: '520px',
-          maxHeight: '90vh',
+          maxHeight: '92vh',
           overflowY: 'auto',
           position: 'relative',
           background: 'var(--bg-modal)',
@@ -44,7 +64,7 @@ const JoinModal = ({ isOpen, onClose }) => {
       >
         {/* Close Button */}
         <button 
-          onClick={onClose}
+          onClick={handleReset}
           style={{
             position: 'absolute',
             top: '16px',
@@ -66,22 +86,91 @@ const JoinModal = ({ isOpen, onClose }) => {
 
         {step === 1 ? (
           <div>
-            <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
               <img 
                 src="/assets/dmk_logo.png" 
                 alt="DMK Emblem" 
                 className="logo-no-distortion"
-                style={{ width: '64px', height: '64px', margin: '0 auto 0.5rem auto' }}
+                style={{ width: '60px', height: '60px', margin: '0 auto 0.4rem auto' }}
               />
               <h3 className="tamil-text" style={{ fontSize: '1.3rem', color: 'var(--gold-bright)', fontWeight: 800 }}>
                 கழகத்தில் உறுப்பினராக இணையுங்கள்
               </h3>
               <p className="tamil-text" style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                டிஜிட்டல் உறுப்பினர் அட்டை உடனடி சரிபார்ப்புடன் உருவாக்கப்படும்!
+                புகைப்படத்துடன் கூடிய டிஜிட்டல் உறுப்பினர் அட்டை உடனடியாக உருவாக்கப்படும்!
               </p>
             </div>
 
             <form onSubmit={handleRegister}>
+              {/* Photo Upload Section */}
+              <div className="form-group" style={{ marginBottom: '1.25rem' }}>
+                <label className="form-label tamil-text">
+                  உறுப்பினர் புகைப்படம் (Member Photo) *
+                </label>
+                
+                <div 
+                  style={{
+                    border: '2px dashed var(--border-gold)',
+                    borderRadius: 'var(--radius-md)',
+                    padding: '1rem',
+                    textAlign: 'center',
+                    background: 'rgba(0, 0, 0, 0.3)',
+                    cursor: 'pointer',
+                    position: 'relative',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
+                  <input 
+                    type="file" 
+                    accept="image/*"
+                    onChange={handlePhotoChange}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      opacity: 0,
+                      cursor: 'pointer',
+                      width: '100%',
+                      height: '100%'
+                    }}
+                  />
+
+                  {formData.photoUrl ? (
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+                      <img 
+                        src={formData.photoUrl} 
+                        alt="Uploaded Preview" 
+                        style={{
+                          width: '64px',
+                          height: '64px',
+                          borderRadius: '50%',
+                          objectFit: 'cover',
+                          border: '2px solid var(--gold-bright)'
+                        }}
+                      />
+                      <div style={{ textAlign: 'left' }}>
+                        <span className="tamil-text gold-bright" style={{ fontWeight: 700, fontSize: '0.9rem', display: 'block' }}>
+                          புகைப்படம் தேர்வு செய்யப்பட்டது ✓
+                        </span>
+                        <span className="tamil-text" style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                          மாற்ற கிளிக் செய்யவும்
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem' }}>
+                      <Upload size={28} className="gold-bright" />
+                      <span className="tamil-text" style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-light)' }}>
+                        புகைப்படத்தைப் பதிவேற்ற கிளிக் செய்யவும்
+                      </span>
+                      <span className="tamil-text" style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                        (PNG, JPG - உங்கள் அடையாள அட்டைக்கு)
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Full Name Field */}
               <div className="form-group">
                 <label className="form-label tamil-text">முழுப் பெயர் (Full Name) *</label>
                 <input 
@@ -94,19 +183,20 @@ const JoinModal = ({ isOpen, onClose }) => {
                 />
               </div>
 
-              <div className="form-group">
-                <label className="form-label tamil-text">கைபேசி எண் (Mobile Number) *</label>
-                <input 
-                  type="tel" 
-                  required 
-                  placeholder="9876543210"
-                  className="form-input"
-                  value={formData.mobile}
-                  onChange={(e) => setFormData({...formData, mobile: e.target.value})}
-                />
-              </div>
-
+              {/* Mobile Number & District in 2 columns */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+                <div className="form-group">
+                  <label className="form-label tamil-text">கைபேசி எண் (Mobile) *</label>
+                  <input 
+                    type="tel" 
+                    required 
+                    placeholder="9876543210"
+                    className="form-input"
+                    value={formData.mobile}
+                    onChange={(e) => setFormData({...formData, mobile: e.target.value})}
+                  />
+                </div>
+
                 <div className="form-group">
                   <label className="form-label tamil-text">மாவட்டம் (District)</label>
                   <select 
@@ -122,35 +212,10 @@ const JoinModal = ({ isOpen, onClose }) => {
                     <option value="திருநெல்வேலி">திருநெல்வேலி</option>
                     <option value="வேலூர்">வேலூர்</option>
                     <option value="ஈரோடு">ஈரோடு</option>
+                    <option value="தஞ்சாவூர்">தஞ்சாவூர்</option>
+                    <option value="தூத்துக்குடி">தூத்துக்குடி</option>
                   </select>
                 </div>
-
-                <div className="form-group">
-                  <label className="form-label tamil-text">வாகன வகை (Vehicle)</label>
-                  <select 
-                    className="form-select tamil-text"
-                    value={formData.vehicleType}
-                    onChange={(e) => setFormData({...formData, vehicleType: e.target.value})}
-                  >
-                    <option value="ஆட்டோ ஓட்டுநர்">ஆட்டோ</option>
-                    <option value="லாரி ஓட்டுநர்">லாரி / கனரகம்</option>
-                    <option value="பேருந்து ஓட்டுநர்">பேருந்து (Bus)</option>
-                    <option value="டாக்ஸி / Cab">டாக்ஸி / Cab</option>
-                    <option value="வேன் / வேன் ஓட்டுநர்">வேன்</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="form-group">
-                <label className="form-label tamil-text">ஓட்டுநர் உரிமம் எண் (DL Number) *</label>
-                <input 
-                  type="text" 
-                  required 
-                  placeholder="TN-01-2020-0012345"
-                  className="form-input"
-                  value={formData.licenseNo}
-                  onChange={(e) => setFormData({...formData, licenseNo: e.target.value})}
-                />
               </div>
 
               <button type="submit" className="btn btn-gold btn-full tamil-text" style={{ marginTop: '1rem' }}>
@@ -181,17 +246,24 @@ const JoinModal = ({ isOpen, onClose }) => {
               <div className="id-card-body">
                 <div style={{ textAlign: 'center' }}>
                   <img 
-                    src="/assets/dmk_logo.png" 
-                    alt="Member" 
+                    src={formData.photoUrl || "/assets/dmk_logo.png"} 
+                    alt="Member Photo" 
                     className="logo-no-distortion"
-                    style={{ width: '70px', height: '70px', borderRadius: '50%', border: '1px solid var(--gold-bright)', margin: '0 auto' }}
+                    style={{ 
+                      width: '76px', 
+                      height: '76px', 
+                      borderRadius: '50%', 
+                      objectFit: 'cover',
+                      border: '2px solid var(--gold-bright)', 
+                      margin: '0 auto' 
+                    }}
                   />
                   <span className="gold-badge tamil-text" style={{ fontSize: '0.65rem', marginTop: '0.5rem' }}>
                     சரிபார்க்கப்பட்டது
                   </span>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', justifyContent: 'center' }}>
                   <div className="id-card-field">
                     <span className="id-field-label tamil-text">பெயர்:</span>
                     <span className="id-field-value tamil-text">{formData.fullName}</span>
@@ -199,22 +271,19 @@ const JoinModal = ({ isOpen, onClose }) => {
 
                   <div className="id-card-field">
                     <span className="id-field-label tamil-text">உறுப்பினர் எண்:</span>
-                    <span className="id-field-value" style={{ color: 'var(--gold-bright)', fontSize: '0.85rem' }}>{memberId}</span>
+                    <span className="id-field-value" style={{ color: 'var(--gold-bright)', fontSize: '0.9rem', fontWeight: 800 }}>
+                      {memberId}
+                    </span>
+                  </div>
+
+                  <div className="id-card-field">
+                    <span className="id-field-label tamil-text">கைபேசி எண்:</span>
+                    <span className="id-field-value">{formData.mobile}</span>
                   </div>
 
                   <div className="id-card-field">
                     <span className="id-field-label tamil-text">மாவட்டம்:</span>
                     <span className="id-field-value tamil-text">{formData.district}</span>
-                  </div>
-
-                  <div className="id-card-field">
-                    <span className="id-field-label tamil-text">வாகனம்:</span>
-                    <span className="id-field-value tamil-text">{formData.vehicleType}</span>
-                  </div>
-
-                  <div className="id-card-field" style={{ gridColumn: 'span 2' }}>
-                    <span className="id-field-label">DL NO:</span>
-                    <span className="id-field-value" style={{ fontSize: '0.8rem' }}>{formData.licenseNo}</span>
                   </div>
                 </div>
               </div>
@@ -230,7 +299,7 @@ const JoinModal = ({ isOpen, onClose }) => {
               </button>
               <button 
                 className="btn btn-outline btn-full tamil-text"
-                onClick={onClose}
+                onClick={handleReset}
               >
                 <span>முடிந்தது</span>
               </button>

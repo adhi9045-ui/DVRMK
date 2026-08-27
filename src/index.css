@@ -23,8 +23,8 @@
   --border-subtle: rgba(255, 255, 255, 0.1);
 
   /* Font Families */
-  --font-family: 'Noto Sans Tamil', 'Mukta Malalar', 'Outfit', system-ui, -apple-system, sans-serif;
-  --font-display: 'Noto Sans Tamil', 'Mukta Malalar', sans-serif;
+  --font-family: 'Noto Sans Tamil', 'Mukta Malar', 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-display: 'Noto Sans Tamil', 'Mukta Malar', sans-serif;
 
   /* Responsive Fluid Typography Scale */
   --font-hero-title: clamp(1.75rem, 4vw + 0.5rem, 3.5rem);
@@ -90,15 +90,13 @@ img, svg, video {
   max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(1rem, 4vw, 2.5rem);
-  padding-right: clamp(1rem, 4vw, 2.5rem);
+  padding-left: clamp(1rem, 2.5vw, 2rem);
+  padding-right: clamp(1rem, 2.5vw, 2rem);
 }
 
 /* Typography Helpers */
 .tamil-text {
-  font-family: 'Noto Sans Tamil', 'Mukta Malalar', sans-serif;
-  word-break: break-word;
-  overflow-wrap: break-word;
+  font-family: 'Noto Sans Tamil', 'Mukta Malar', sans-serif;
 }
 
 .gold-gradient-text {
@@ -223,6 +221,14 @@ img, svg, video {
 
 .btn-full {
   width: 100%;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.85rem;
+  font-size: var(--font-small);
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* Glass Card Component */
