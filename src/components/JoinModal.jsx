@@ -183,8 +183,8 @@ const JoinModal = ({ isOpen, onClose }) => {
                 />
               </div>
 
-              {/* Mobile Number & District in 2 columns */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+              {/* Mobile Number & District in 2 columns (responsive) */}
+              <div className="modal-input-grid">
                 <div className="form-group">
                   <label className="form-label tamil-text">கைபேசி எண் (Mobile) *</label>
                   <input 
