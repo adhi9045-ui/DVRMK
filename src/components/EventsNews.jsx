@@ -88,7 +88,7 @@ const EventsNews = () => {
             <div key={item.id} className="glass-card news-card">
               <div className="news-img-box" style={{ background: 'linear-gradient(135deg, #2D0505, #140505)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <img 
-                  src="/assets/dmk_logo.png" 
+                  src={`${import.meta.env.BASE_URL}assets/dmk_logo.png`} 
                   alt={item.titleTa} 
                   className="logo-no-distortion"
                   style={{ width: '90px', height: '90px', opacity: 0.9 }} 

@@ -10,7 +10,7 @@ const Footer = ({ onOpenJoinModal }) => {
           <div className="footer-brand">
             <div className="footer-logo-row">
               <img 
-                src="/assets/dmk_logo.png" 
+                src={`${import.meta.env.BASE_URL}assets/dmk_logo.png`} 
                 alt="DMK Emblem" 
                 className="brand-logo-img logo-no-distortion"
                 style={{ width: '60px', height: '60px' }}

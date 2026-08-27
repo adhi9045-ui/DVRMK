@@ -9,35 +9,35 @@ const Leadership = () => {
       nameEn: 'Share Auto Chandra',
       roleTa: 'கொள்கைத் தலைவர் (Policy Leader)',
       quoteTa: '"ஏழை எளிய ஆட்டோ ஓட்டுநர்களின் உரிமைகளுக்காகவும் நியாயமான வாழ்வாதாரத்திற்காகவும் உறுதியுடன் நிற்போம்."',
-      photo: '/assets/share_auto_chandra.jpg'
+      photo: `${import.meta.env.BASE_URL}assets/share_auto_chandra.jpg`
     },
     {
       nameTa: 'பில்லாரம்',
       nameEn: 'Billaram',
       roleTa: 'கொள்கைத் தலைவர் (Policy Leader)',
       quoteTa: '"சாலைப் பாதுகாப்பும், ஓட்டுநர்களின் ஒற்றுமையுமே நமது இயக்கத்தின் வெற்றிக்கு மூலதனம்."',
-      photo: '/assets/dmk_logo.png'
+      photo: `${import.meta.env.BASE_URL}assets/dmk_logo.png`
     },
     {
       nameTa: 'ஸ்பைடர் மேன்',
       nameEn: 'Spider-Man',
       roleTa: 'கொள்கைத் தலைவர் (Policy Leader)',
       quoteTa: '"பெரிய பொறுப்புடன் ஓட்டுநர் சமூகத்திற்குச் சேவை செய்வதும், ஆபத்துக்களில் கைகொடுத்து உதவுவதும் எங்களின் கொள்கை."',
-      photo: '/assets/dmk_logo.png'
+      photo: `${import.meta.env.BASE_URL}assets/dmk_logo.png`
     },
     {
       nameTa: 'ஹல்க்',
       nameEn: 'Hulk',
       roleTa: 'கொள்கைத் தலைவர் (Policy Leader)',
       quoteTa: '"அநீதிகளையும் அக்கிரமங்களையும் எதிர்க்கும் அசுர பலம் கொண்ட இயக்கமாக கழகம் தொடர்ந்து செயல்படும்."',
-      photo: '/assets/dmk_logo.png'
+      photo: `${import.meta.env.BASE_URL}assets/dmk_logo.png`
     },
     {
       nameTa: 'செங்கல் சிவா',
       nameEn: 'Sengal Shiva',
       roleTa: 'கொள்கைத் தலைவர் (Policy Leader)',
       quoteTa: '"உழைக்கும் வர்க்க ஓட்டுநர்களின் கௌரவத்தையும் உழைப்பையும் யாருக்கும் விட்டுக்கொடுக்க மாட்டோம்."',
-      photo: '/assets/dmk_logo.png'
+      photo: `${import.meta.env.BASE_URL}assets/dmk_logo.png`
     }
   ];
 

@@ -9,25 +9,25 @@ const Gallery = () => {
       id: 1,
       title: 'மாநில அளவிலான ஓட்டுநர் பேரணி',
       captionTa: 'சென்னை அண்ணா சாலையில் நடைபெற்ற மாபெரும் ஓட்டுநர் உரிமை பேரணி.',
-      src: '/assets/dmk_logo.png'
+      src: `${import.meta.env.BASE_URL}assets/dmk_logo.png`
     },
     {
       id: 2,
       title: 'இலவச மருத்துவ முகாம்',
       captionTa: 'ஆட்டோ மற்றும் லாரி ஓட்டுநர்களுக்கான கண் பரிசோதனை முகாம்.',
-      src: '/assets/dmk_logo.png'
+      src: `${import.meta.env.BASE_URL}assets/dmk_logo.png`
     },
     {
       id: 3,
       title: 'நிர்வாகிகள் கலந்தாய்வு கூட்டம்',
       captionTa: 'மதுரை கிளை வளர்ச்சி மற்றும் புதிய உறுப்பினர் சேர்க்கை ஆலோசனை.',
-      src: '/assets/dmk_logo.png'
+      src: `${import.meta.env.BASE_URL}assets/dmk_logo.png`
     },
     {
       id: 4,
       title: 'ஓட்டுநர் குடும்பங்களுக்கு நிவாரணம்',
       captionTa: 'பணியின் போது உயிரிழந்த ஓட்டுநர் குடும்பத்திற்கு நிதி உதவி வழங்கல்.',
-      src: '/assets/dmk_logo.png'
+      src: `${import.meta.env.BASE_URL}assets/dmk_logo.png`
     }
   ];
 

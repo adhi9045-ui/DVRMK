@@ -88,7 +88,7 @@ const JoinModal = ({ isOpen, onClose }) => {
           <div>
             <div style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
               <img 
-                src="/assets/dmk_logo.png" 
+                src={`${import.meta.env.BASE_URL}assets/dmk_logo.png`} 
                 alt="DMK Emblem" 
                 className="logo-no-distortion"
                 style={{ width: '60px', height: '60px', margin: '0 auto 0.4rem auto' }}
@@ -236,7 +236,7 @@ const JoinModal = ({ isOpen, onClose }) => {
             {/* Generated DMK Digital ID Pass */}
             <div className="id-card-preview">
               <div className="id-card-header">
-                <img src="/assets/dmk_logo.png" alt="DMK Logo" className="id-card-logo logo-no-distortion" />
+                <img src={`${import.meta.env.BASE_URL}assets/dmk_logo.png`} alt="DMK Logo" className="id-card-logo logo-no-distortion" />
                 <div>
                   <div className="id-card-title tamil-text">டிரைவர் முன்னேற்ற கழகம்</div>
                   <div style={{ fontSize: '0.7rem', color: 'var(--gold-bright)', letterSpacing: '1px' }}>OFFICIAL MEMBER PASS</div>
@@ -246,7 +246,7 @@ const JoinModal = ({ isOpen, onClose }) => {
               <div className="id-card-body">
                 <div style={{ textAlign: 'center' }}>
                   <img 
-                    src={formData.photoUrl || "/assets/dmk_logo.png"} 
+                    src={formData.photoUrl || `${import.meta.env.BASE_URL}assets/dmk_logo.png`} 
                     alt="Member Photo" 
                     className="logo-no-distortion"
                     style={{ 

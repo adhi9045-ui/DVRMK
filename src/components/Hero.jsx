@@ -78,7 +78,7 @@ const Hero = ({ onOpenJoinModal }) => {
           <div className="hero-logo-wrapper">
             <div className="hero-logo-frame">
               <img 
-                src="/assets/dmk_logo.png" 
+                src={`${import.meta.env.BASE_URL}assets/dmk_logo.png`} 
                 alt="Driver Munnetra Kazhagam Logo" 
                 className="hero-logo-img logo-no-distortion"
                 onError={(e) => { e.target.src = "https://via.placeholder.com/400?text=DMK+Logo"; }}

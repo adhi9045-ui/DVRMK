@@ -44,7 +44,7 @@ const Navbar = ({ onOpenJoinModal }) => {
           {/* Logo & Brand Name */}
           <a href="#home" className="brand-logo-link" onClick={() => handleNavClick('home')}>
             <img 
-              src="/assets/dmk_logo.png" 
+              src={`${import.meta.env.BASE_URL}assets/dmk_logo.png`} 
               alt="DMK Logo" 
               className="brand-logo-img logo-no-distortion"
               onError={(e) => { e.target.src = "https://via.placeholder.com/60?text=DMK"; }}
@@ -103,7 +103,7 @@ const Navbar = ({ onOpenJoinModal }) => {
         <div className="drawer-header">
           <div className="brand-logo-link">
             <img 
-              src="/assets/dmk_logo.png" 
+              src={`${import.meta.env.BASE_URL}assets/dmk_logo.png`} 
               alt="DMK Logo" 
               className="brand-logo-img logo-no-distortion" 
             />
