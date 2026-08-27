@@ -2,8 +2,19 @@ import React from 'react';
 import { ShieldCheck, UserPlus, ArrowRight, Award, Truck, HeartHandshake } from 'lucide-react';
 
 const Hero = ({ onOpenJoinModal }) => {
+  const truckBg = `${import.meta.env.BASE_URL}assets/truck_bg.jpg`;
+
   return (
-    <section id="home" className="hero-section">
+    <section 
+      id="home" 
+      className="hero-section"
+      style={{
+        backgroundImage: `linear-gradient(135deg, rgba(10, 10, 12, 0.88) 0%, rgba(74, 0, 0, 0.72) 50%, rgba(10, 10, 12, 0.92) 100%), url(${truckBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 35%',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <div className="container">
         <div className="hero-grid">
           {/* Hero Content Column */}

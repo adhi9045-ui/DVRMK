@@ -54,7 +54,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <span className="tamil-text" style={{ fontWeight: 700, color: 'var(--text-light)', display: 'block' }}>அவசர உதவி எண் (24/7 Helpline)</span>
-                  <span className="gold-bright" style={{ fontWeight: 800, fontSize: '1.1rem' }}>+91 98765 43210 / 044-2435 9999</span>
+                  <span className="gold-bright" style={{ fontWeight: 800, fontSize: '1.1rem' }}>+91 12345 67890 / 044-2435 9999</span>
                 </div>
               </div>
 
@@ -115,7 +115,7 @@ const Contact = () => {
                   <input 
                     type="tel" 
                     required 
-                    placeholder="9876543210"
+                    placeholder="1234567890"
                     className="form-input"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}

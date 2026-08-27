@@ -190,7 +190,7 @@ const JoinModal = ({ isOpen, onClose }) => {
                   <input 
                     type="tel" 
                     required 
-                    placeholder="9876543210"
+                    placeholder="1234567890"
                     className="form-input"
                     value={formData.mobile}
                     onChange={(e) => setFormData({...formData, mobile: e.target.value})}

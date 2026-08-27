@@ -64,7 +64,7 @@ const Footer = ({ onOpenJoinModal }) => {
               எண் 45, அண்ணா சாலை, தேனாம்பேட்டை, சென்னை, தமிழ்நாடு - 600018.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', fontSize: '0.85rem' }}>
-              <span className="gold-bright" style={{ fontWeight: 700 }}>📞 24/7 Helpline: +91 98765 43210</span>
+              <span className="gold-bright" style={{ fontWeight: 700 }}>📞 24/7 Helpline: +91 12345 67890</span>
               <span style={{ color: 'var(--text-muted)' }}>✉️ contact@drivermunnetrakazhagam.org</span>
             </div>
           </div>
