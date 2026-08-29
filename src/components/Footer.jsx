@@ -1,5 +1,4 @@
 import React from 'react';
-import { Phone, Mail, MapPin, ShieldCheck, Heart } from 'lucide-react';
 
 const Footer = ({ onOpenJoinModal }) => {
   return (
@@ -12,22 +11,22 @@ const Footer = ({ onOpenJoinModal }) => {
               <img 
                 src={`${import.meta.env.BASE_URL}assets/dmk_logo.png`} 
                 alt="DMK Emblem" 
-                className="brand-logo-img logo-no-distortion"
-                style={{ width: '60px', height: '60px' }}
+                className="brand-logo-img footer-logo-img logo-no-distortion"
+                onError={(e) => { e.target.src = "https://via.placeholder.com/60?text=DMK"; }}
               />
               <div className="footer-title-col">
-                <span className="brand-title-ta tamil-text" style={{ fontSize: '1.2rem' }}>
+                <span className="brand-title-ta footer-title-ta tamil-text">
                   டிரைவர் முன்னேற்ற கழகம்
                 </span>
-                <span className="brand-subtitle-en">Driver Munnetra Kazhagam</span>
+                <span className="brand-subtitle-en footer-subtitle-en">Driver Munnetra Kazhagam</span>
               </div>
             </div>
             
-            <p className="tamil-text" style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+            <p className="tamil-text footer-desc">
               தமிழ்நாடு அனைத்து ஓட்டுநர்கள் நலன், சட்டப்பூர்வ பாதுகாப்பு மற்றும் வாழ்வாதார முன்னேற்றத்திற்கான முதன்மை இயக்கம். ஒற்றுமை! ஒழுக்கம்!! உயர்வு!!!
             </p>
 
-            <div>
+            <div className="footer-cta-box">
               <button className="btn btn-gold btn-sm tamil-text" onClick={onOpenJoinModal}>
                 கழகத்தில் இணையவும்
               </button>
@@ -35,7 +34,7 @@ const Footer = ({ onOpenJoinModal }) => {
           </div>
 
           {/* Quick Links Column */}
-          <div>
+          <div className="footer-col">
             <h4 className="footer-title tamil-text">முக்கிய இணைப்புகள்</h4>
             <ul className="footer-links">
               <li><a href="#home" className="footer-link tamil-text">முகப்பு (Home)</a></li>
@@ -47,7 +46,7 @@ const Footer = ({ onOpenJoinModal }) => {
           </div>
 
           {/* Resources Column */}
-          <div>
+          <div className="footer-col">
             <h4 className="footer-title tamil-text">ஆவணங்கள் & உதவி</h4>
             <ul className="footer-links">
               <li><a href="#documents" className="footer-link tamil-text">நலவாரிய படிவங்கள்</a></li>
@@ -58,14 +57,20 @@ const Footer = ({ onOpenJoinModal }) => {
           </div>
 
           {/* Contact Column */}
-          <div>
-            <h4 className="footer-title tamil-text">தலைமையகம்</h4>
-            <p className="tamil-text" style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.75rem', lineHeight: '1.5' }}>
+          <div className="footer-col">
+            <h4 className="footer-title tamil-text">தொடர்பு முகவரி</h4>
+            <p className="tamil-text footer-address">
               எண் 45, அண்ணா சாலை, தேனாம்பேட்டை, சென்னை, தமிழ்நாடு - 600018.
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', fontSize: '0.85rem' }}>
-              <span className="gold-bright" style={{ fontWeight: 700 }}>📞 24/7 Helpline: +91 12345 67890</span>
-              <span style={{ color: 'var(--text-muted)' }}>✉️ contact@drivermunnetrakazhagam.org</span>
+            <div className="footer-contact-info">
+              <a href="tel:+911234567890" className="footer-contact-item gold-bright">
+                <span>📞</span>
+                <span>24/7 Helpline: +91 12345 67890</span>
+              </a>
+              <a href="mailto:contact@drivermunnetrakazhagam.org" className="footer-contact-item">
+                <span>✉️</span>
+                <span className="footer-email-text">contact@drivermunnetrakazhagam.org</span>
+              </a>
             </div>
           </div>
         </div>

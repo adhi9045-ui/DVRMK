@@ -30,51 +30,63 @@ const Contact = () => {
 
         <div className="contact-grid">
           {/* HQ Info Card */}
-          <div className="glass-card" style={{ border: '2px solid var(--border-gold)' }}>
-            <h3 className="tamil-text" style={{ fontSize: '1.4rem', color: 'var(--gold-bright)', fontWeight: 800, marginBottom: '1.25rem' }}>
+          <div className="glass-card contact-info-card" style={{ border: '2px solid var(--border-gold)' }}>
+            <h3 className="tamil-text contact-card-title">
               தலைமையகம் (HQ)
             </h3>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <div className="vision-icon-box">
-                  <MapPin size={24} />
+            <div className="contact-items-list">
+              <div className="contact-item-row">
+                <div className="vision-icon-box contact-icon-box">
+                  <MapPin size={22} />
                 </div>
-                <div>
-                  <span className="tamil-text" style={{ fontWeight: 700, color: 'var(--text-light)', display: 'block' }}>முகவரி (Address)</span>
-                  <span className="tamil-text" style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                <div className="contact-item-content">
+                  <span className="tamil-text contact-item-label">முகவரி (Address)</span>
+                  <span className="tamil-text contact-item-text">
                     டிரைவர் முன்னேற்ற கழகம், எண் 45, அண்ணா சாலை, தேனாம்பேட்டை, சென்னை, தமிழ்நாடு - 600018.
                   </span>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <div className="vision-icon-box">
-                  <Phone size={24} />
+              <div className="contact-item-row">
+                <div className="vision-icon-box contact-icon-box">
+                  <Phone size={22} />
                 </div>
-                <div>
-                  <span className="tamil-text" style={{ fontWeight: 700, color: 'var(--text-light)', display: 'block' }}>அவசர உதவி எண் (24/7 Helpline)</span>
-                  <span className="gold-bright" style={{ fontWeight: 800, fontSize: '1.1rem' }}>+91 12345 67890 / 044-2435 9999</span>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <div className="vision-icon-box">
-                  <Mail size={24} />
-                </div>
-                <div>
-                  <span className="tamil-text" style={{ fontWeight: 700, color: 'var(--text-light)', display: 'block' }}>மின்னஞ்சல் (Email)</span>
-                  <span style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>contact@drivermunnetrakazhagam.org</span>
+                <div className="contact-item-content">
+                  <span className="tamil-text contact-item-label">அவசர உதவி எண் (24/7 Helpline)</span>
+                  <div className="contact-phone-group">
+                    <a href="tel:+911234567890" className="contact-item-phone gold-bright">
+                      +91 12345 67890
+                    </a>
+                    <span className="phone-separator">/</span>
+                    <a href="tel:04424359999" className="contact-item-phone gold-bright">
+                      044-2435 9999
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <div className="vision-icon-box">
-                  <Clock size={24} />
+              <div className="contact-item-row">
+                <div className="vision-icon-box contact-icon-box">
+                  <Mail size={22} />
                 </div>
-                <div>
-                  <span className="tamil-text" style={{ fontWeight: 700, color: 'var(--text-light)', display: 'block' }}>அலுவலக நேரம் (Office Hours)</span>
-                  <span className="tamil-text" style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>திங்கள் - சனி: காலை 9:00 - மாலை 7:00 வரை</span>
+                <div className="contact-item-content">
+                  <span className="tamil-text contact-item-label">மின்னஞ்சல் (Email)</span>
+                  <a href="mailto:contact@drivermunnetrakazhagam.org" className="contact-item-email">
+                    contact@drivermunnetrakazhagam.org
+                  </a>
+                </div>
+              </div>
+
+              <div className="contact-item-row">
+                <div className="vision-icon-box contact-icon-box">
+                  <Clock size={22} />
+                </div>
+                <div className="contact-item-content">
+                  <span className="tamil-text contact-item-label">அலுவலக நேரம் (Office Hours)</span>
+                  <span className="tamil-text contact-item-text">
+                    திங்கள் - சனி: காலை 9:00 - மாலை 7:00 வரை
+                  </span>
                 </div>
               </div>
             </div>
@@ -111,14 +123,20 @@ const Contact = () => {
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label tamil-text">தொலைபேசி எண் (Mobile Number)</label>
+                  <label className="form-label tamil-text">தொலைபேசி எண் (Mobile Number) *</label>
                   <input 
                     type="tel" 
                     required 
-                    placeholder="1234567890"
+                    placeholder="10 இலக்க எண் (எ.கா. 9876543210)"
                     className="form-input"
+                    maxLength={10}
+                    pattern="[0-9]{10}"
+                    title="10 இலக்க தொலைபேசி எண்ணை உள்ளிடவும்"
                     value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    onChange={(e) => {
+                      const digitsOnly = e.target.value.replace(/\D/g, '').slice(0, 10);
+                      setFormData({ ...formData, phone: digitsOnly });
+                    }}
                   />
                 </div>
 

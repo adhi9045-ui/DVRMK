@@ -14,6 +14,17 @@ const Navbar = ({ onOpenJoinModal }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isDrawerOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isDrawerOpen]);
+
   const navItems = [
     { id: 'home', labelTa: 'முகப்பு', labelEn: 'Home' },
     { id: 'about', labelTa: 'கழகம்', labelEn: 'About' },
@@ -77,9 +88,11 @@ const Navbar = ({ onOpenJoinModal }) => {
             <button 
               className="btn btn-gold btn-sm header-join-btn"
               onClick={onOpenJoinModal}
+              title="கழகத்தில் இணையுங்கள்"
+              aria-label="Join DMK"
             >
               <Sparkles size={15} />
-              <span className="tamil-text">இணையுங்கள்</span>
+              <span className="tamil-text header-join-text">இணையுங்கள்</span>
             </button>
 
             <button 
