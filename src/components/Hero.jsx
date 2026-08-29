@@ -71,7 +71,7 @@ const Hero = ({ onOpenJoinModal }) => {
             {/* Key Metrics */}
             <div className="hero-stats-strip">
               <div className="stat-item">
-                <span className="stat-num">33+</span>
+                <span className="stat-num">50000+</span>
                 <span className="stat-label tamil-text">உறுப்பினர்கள்</span>
               </div>
               <div className="stat-item">
