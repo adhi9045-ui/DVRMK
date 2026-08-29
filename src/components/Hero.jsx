@@ -5,8 +5,8 @@ const Hero = ({ onOpenJoinModal }) => {
   const truckBg = `${import.meta.env.BASE_URL}assets/truck_bg.jpg`;
 
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       className="hero-section"
       style={{
         backgroundImage: `linear-gradient(135deg, rgba(10, 10, 12, 0.88) 0%, rgba(74, 0, 0, 0.72) 50%, rgba(10, 10, 12, 0.92) 100%), url(${truckBg})`,
@@ -54,14 +54,14 @@ const Hero = ({ onOpenJoinModal }) => {
             </p>
 
             <div className="hero-cta-group">
-              <button 
+              <button
                 className="btn btn-gold"
                 onClick={onOpenJoinModal}
               >
                 <UserPlus size={18} />
                 <span className="tamil-text">கழகத்தில் இணையவும்</span>
               </button>
-              
+
               <a href="#vision" className="btn btn-outline">
                 <span className="tamil-text">எங்கள் கோரிக்கைகள்</span>
                 <ArrowRight size={18} />
@@ -71,7 +71,7 @@ const Hero = ({ onOpenJoinModal }) => {
             {/* Key Metrics */}
             <div className="hero-stats-strip">
               <div className="stat-item">
-                <span className="stat-num">50,000+</span>
+                <span className="stat-num">33+</span>
                 <span className="stat-label tamil-text">உறுப்பினர்கள்</span>
               </div>
               <div className="stat-item">
@@ -88,15 +88,15 @@ const Hero = ({ onOpenJoinModal }) => {
           {/* Hero Logo Column */}
           <div className="hero-logo-wrapper">
             <div className="hero-logo-frame">
-              <img 
-                src={`${import.meta.env.BASE_URL}assets/dmk_logo.png`} 
-                alt="Driver Munnetra Kazhagam Logo" 
+              <img
+                src={`${import.meta.env.BASE_URL}assets/dmk_logo.png`}
+                alt="Driver Munnetra Kazhagam Logo"
                 className="hero-logo-img logo-no-distortion"
                 onError={(e) => { e.target.src = "https://via.placeholder.com/400?text=DMK+Logo"; }}
               />
             </div>
-            
-            <div 
+
+            <div
               style={{
                 marginTop: '1.5rem',
                 display: 'inline-flex',
