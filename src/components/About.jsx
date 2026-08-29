@@ -62,10 +62,10 @@ const About = () => {
         </div>
 
         {/* Commitment Box */}
-        <div 
-          className="glass-card" 
-          style={{ 
-            marginTop: '3rem', 
+        <div
+          className="glass-card"
+          style={{
+            marginTop: '3rem',
             background: 'linear-gradient(135deg, rgba(139, 0, 0, 0.4) 0%, rgba(20, 16, 16, 0.9) 100%)',
             border: '2px solid var(--border-gold)'
           }}
