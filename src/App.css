@@ -1284,6 +1284,40 @@
 
 /* 5. Tablets & Large Mobile (768px down) */
 @media (max-width: 768px) {
+  .brand-subtitle-en {
+    display: none;
+  }
+
+  .header-join-text {
+    display: none;
+  }
+
+  .header-join-btn {
+    padding: 0;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .hamburger-btn {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+
+  .header-actions {
+    gap: 0.4rem;
+  }
+
+  .brand-title-ta {
+    font-size: clamp(0.85rem, 3.2vw, 1.05rem);
+    white-space: nowrap;
+  }
+
   .section {
     padding-top: clamp(2.5rem, 5vw, 4rem);
     padding-bottom: clamp(2.5rem, 5vw, 4rem);
